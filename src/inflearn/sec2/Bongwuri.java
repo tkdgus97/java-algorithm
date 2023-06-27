@@ -2,7 +2,7 @@ package inflearn.sec2;
 
 import java.util.Scanner;
 
-public class Main {
+public class Bongwuri {
     public static int solution(int size, int[][] arr) {
         int result = 0;
 

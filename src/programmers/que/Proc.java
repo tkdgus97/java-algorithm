@@ -57,9 +57,15 @@ public class Proc {
     }
 
     public static void main(String[] args) {
-        int[] ar = {2, 1, 3, 2};
-        Proc p = new Proc();
+//        int[] ar = {2, 1, 3, 2};
+//        Proc p = new Proc();
+//
+//        System.out.println(p.solution(ar, 2));
 
-        System.out.println(p.solution(ar, 2));
+        String v = "apple";
+        String v2 = new String("banana").intern();
+
+        System.out.println(v == v2);
+        System.out.println(v.equals(v2));
     }
 }

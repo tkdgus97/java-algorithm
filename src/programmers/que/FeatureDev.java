@@ -1,9 +1,7 @@
 package programmers.que;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class FeatureDev {
 
@@ -19,7 +17,6 @@ public class FeatureDev {
             //1.한번 기능을 개발하는데 필요한 날짜 계산
             int remain = (int) Math.ceil((100 - progresses[i]) / (double) speeds[i]);
             int j = i + 1;
-            int cnt = 1;
             for (; j < progresses.length; j++) {
                 if (progresses[j] + remain * speeds[j] < 100) {
                     break;

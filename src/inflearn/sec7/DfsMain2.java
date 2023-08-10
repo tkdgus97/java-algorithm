@@ -1,15 +1,5 @@
 package inflearn.sec7;
 
-class Node {
-    protected int data;
-    Node l;
-    Node r;
-
-    public Node(int data) {
-        this.data = data;
-    }
-}
-
 
 public class DfsMain2 {
     Node root;
@@ -19,7 +9,7 @@ public class DfsMain2 {
             return;
         } else {
             twoTree(root.l);
-            System.out.print(root.data + " ");
+            System.out.print(root.getData() + " ");
             twoTree(root.r);
         }
     }

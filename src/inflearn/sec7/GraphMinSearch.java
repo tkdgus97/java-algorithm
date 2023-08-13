@@ -6,27 +6,22 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class GraphMinSearch {
-
-    static int answer,n, m;
-    static int[] ch;
-
+    static int[] dis, ch;
+    static int n, m;
     static ArrayList<ArrayList<Integer>> graph;
-    Queue<Integer> q = new LinkedList<>();
-    public void routeDFS() {
-        q.add(1);
+
+    public void BFS(int v) {
+        Queue<Integer> q = new LinkedList<>();
+        ch[v] = 1;
+        dis[v] = 0;
+        q.add(v);
         while (!q.isEmpty()) {
-            int len = q.size();
-            for (int i = 0; i < len; i++) {
-                q.poll();
-
-            }
-        }
-        if (ch[v] != 0) {
-            return;
-        } else {
-            for (int i = 1; i <= n; i++) {
-                if (ch[i] != 1) {
-
+            int cv = q.poll();
+            for (int nv: graph.get(cv)) {
+                if (ch[nv] == 0) {
+                    ch[nv] = 1;
+                    q.add(nv);
+                    dis[nv] = dis[cv] + 1;
                 }
             }
         }
@@ -38,9 +33,12 @@ public class GraphMinSearch {
 
         n = sc.nextInt();
         m = sc.nextInt();
+
         ch = new int[n + 1];
+        dis = new int[n + 1];
         graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+
+        for (int i = 0; i <= n; i++) {
             graph.add(new ArrayList<>());
         }
 
@@ -49,8 +47,9 @@ public class GraphMinSearch {
             int b = sc.nextInt();
             graph.get(a).add(b);
         }
-        ch[1] = 1;
-//        M.routeDFS(1);
-        System.out.println(answer);
+        M.BFS(1);
+        for (int i = 1; i < dis.length; i++) {
+            System.out.println(i + ":" + dis[i]);
+        }
     }
 }

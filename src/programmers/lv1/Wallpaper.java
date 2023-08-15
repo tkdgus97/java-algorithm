@@ -1,11 +1,8 @@
-package inflearn;
+package programmers.lv1;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import inflearn.Main;
 
-public class Main {
-
+public class Wallpaper {
     public int[] solution(String[] wallpaper) {
         int[] answer = new int[4];
 

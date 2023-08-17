@@ -30,7 +30,7 @@ public class Wallpaper {
     }
 
     public static void main(String[] args) {
-        Main M = new Main();
+        Wallpaper M = new Wallpaper();
         M.solution(
             new String[]{".#...", "..#..", "...#."});
     }

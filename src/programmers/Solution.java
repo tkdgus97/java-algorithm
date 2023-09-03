@@ -1,20 +1,25 @@
 package programmers;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Solution {
     public int[] solution(String[] id_list, String[] report, int k) {
-        int[] answer = {};
+        int[] answer = new int[id_list.length];
 
         HashMap<String, Set<String>> map = new HashMap<>();
         HashMap<String, Integer> cnt = new HashMap<>();
 
         for (String v : id_list) {
             map.put(v, new HashSet<>());
+            cnt.put(v, 0);
         }
 
         for (String s : report) {
@@ -23,9 +28,16 @@ public class Solution {
         }
 
         for (String s : id_list) {
-            Set<String> tmp = map.get(s);
-            for (String name : tmp) {
+            for (String name : map.get(s)) {
                 cnt.put(name, cnt.getOrDefault(name, 0) + 1) ;
+            }
+        }
+
+        for (int i = 0; i < id_list.length; i++) {
+            for (String name :map.get(id_list[i])) {
+                if (cnt.get(name) >= k) {
+                    answer[i]++;
+                }
             }
         }
 

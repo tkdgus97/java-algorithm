@@ -1,8 +1,8 @@
-package programmers;
+package programmers.lv1;
 
 import java.util.Stack;
 
-public class Solution {
+public class MakeHamburg {
     public int solution(int[] ingredient) {
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
@@ -22,11 +22,6 @@ public class Solution {
             }
         }
         return answer;
-    }
-
-    public static void main(String[] args) {
-        Solution M = new Solution();
-        System.out.println(M.solution(new int[]{2, 1, 1, 2, 3, 1, 2, 3, 1}));
     }
 
 }

@@ -31,7 +31,7 @@ public class Wallpaper {
 
     public static void main(String[] args) {
         Main M = new Main();
-        M.solution(
-            new String[]{".#...", "..#..", "...#."});
+//        M.solution(
+//            new String[]{".#...", "..#..", "...#."});
     }
 }

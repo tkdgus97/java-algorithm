@@ -1,8 +1,6 @@
-package inflearn;
+package inflearn.sec3;
 
-import java.util.Scanner;
-
-public class Main {
+public class MaxLenSequence {
     public int solution(int n, int k, int[] arr) {
         int answer = 0, lt = 0, cnt = 0;
 
@@ -22,21 +20,5 @@ public class Main {
         }
 
         return answer;
-    }
-
-    public static void main(String[] args) {
-        Main M = new Main();
-        Scanner in = new Scanner(System.in);
-
-        int n = in.nextInt();
-        int k = in.nextInt();
-
-        int[] arr = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = in.nextInt();
-        }
-
-        System.out.print(M.solution(n, k, arr));
     }
 }

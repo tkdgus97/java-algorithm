@@ -30,8 +30,8 @@ public class Wallpaper {
     }
 
     public static void main(String[] args) {
-        Wallpaper M = new Wallpaper();
-        M.solution(
-            new String[]{".#...", "..#..", "...#."});
+        Main M = new Main();
+//        M.solution(
+//            new String[]{".#...", "..#..", "...#."});
     }
 }

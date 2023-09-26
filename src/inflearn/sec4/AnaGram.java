@@ -1,9 +1,8 @@
-package inflearn;
+package inflearn.sec4;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
-public class Main {
+public class AnaGram {
     public String solution(String a, String b) {
         HashMap<Character, Integer> map = new HashMap<>();
 
@@ -24,16 +23,5 @@ public class Main {
         }
 
         return "YES";
-    }
-
-    public static void main(String[] args) {
-        Main M = new Main();
-        Scanner in = new Scanner(System.in);
-
-//        int n = in.nextInt();
-        String a = in.next();
-        String b = in.next();
-
-        System.out.print(M.solution(a,b));
     }
 }

@@ -1,34 +1,49 @@
 package programmers;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class Solution {
-    public String solution(String[] survey, int[] choices) {
-        String answer = "";
+    public String solution(String X, String Y) {
+        StringBuilder answer = new StringBuilder();
 
-        return answer;
+        int[] xCnt = new int[10];
+        int[] yCnt = new int[10];
+
+        StringBuilder xSb = new StringBuilder(X);
+        StringBuilder ySb = new StringBuilder(Y);
+
+        List<Integer> common = new ArrayList<>();
+
+        for (int i = 0; i < xSb.length(); i++) {
+            for (int j = 0; j < ySb.length(); j++) {
+                if (xSb.charAt(i) == ySb.charAt(j)) {
+                    common.add(Character.getNumericValue(xSb.charAt(i)));
+                    ySb.deleteCharAt(j);
+                }
+            }
+        }
+        if (common.size() == 0) {
+            return "-1";
+        }
+
+        common.sort(Collections.reverseOrder());
+
+        if (common.get(0) == 0) {
+            return "0";
+        }
+
+        common.forEach(answer::append);
+
+        return answer.toString();
     }
 
-    public static void main(String[] args) throws AWTException {
-//        Solution M = new Solution();
-//        M.solution(new String[]{"AN", "CF", "MJ", "RT", "NA"}, new int[]{5, 3, 2, 7, 5});
+    public static void main(String[] args) {
+        Solution M = new Solution();
+        M.solution("12321", "42531");
 
-        Robot rb = new Robot();
-
-        rb.delay(3000);
-
-        for (int i = 0; i < 5; i++) {
-            rb.keyPress(KeyEvent.VK_G);
-            rb.keyRelease(KeyEvent.VK_G);
-            rb.delay(1000);
-        }
+        System.out.println(M.solution("12321", "42531"));
     }
 
 }

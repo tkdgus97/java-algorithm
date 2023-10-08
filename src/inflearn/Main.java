@@ -1,39 +1,48 @@
 package inflearn;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public String solution(String a, String b) {
-        HashMap<Character, Integer> map = new HashMap<>();
+    public List<Integer> solution(int N, int[] arr) {
+        List<Integer> answer = new ArrayList<>();
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int lt = 0;
 
-        for (Character c : a.toCharArray()) {
-            int cnt = map.getOrDefault(c , 0);
-            map.put(c, cnt + 1);
+        for (int i = 0; i < N - 1; i++) {
+            hm.put(arr[i], hm.getOrDefault(arr[i],0) + 1 );
         }
 
-        for (Character c : b.toCharArray()) {
-            int cnt = map.getOrDefault(c, 0);
-            map.put(c, cnt - 1);
-        }
-
-        for (Character c : map.keySet()) {
-            if (map.get(c) != 0) {
-                return "NO";
+        for (int rt = N - 1; rt < arr.length; rt++) {
+            hm.put(arr[rt], hm.getOrDefault(arr[rt],0) + 1);
+            answer.add(hm.size());
+            hm.put(arr[lt], hm.get(arr[lt]) - 1);
+            if (hm.get(arr[lt]) == 0){
+                hm.remove(arr[lt]);
             }
+            lt++;
         }
 
-        return "YES";
+        return answer;
     }
 
     public static void main(String[] args) {
         Main M = new Main();
         Scanner in = new Scanner(System.in);
 
-//        int n = in.nextInt();
-        String a = in.next();
-        String b = in.next();
+        int T = in.nextInt();
+        int N = in.nextInt();
 
-        System.out.print(M.solution(a,b));
+        int[] arr = new int[T];
+
+        for (int i = 0; i < T; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        for (int v : M.solution(N, arr))  {
+            System.out.print(v + " ");
+        }
     }
 }

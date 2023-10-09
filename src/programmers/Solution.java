@@ -1,49 +1,36 @@
 package programmers;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Solution {
-    public String solution(String X, String Y) {
-        StringBuilder answer = new StringBuilder();
 
-        int[] xCnt = new int[10];
-        int[] yCnt = new int[10];
+    static int[][] W = {{1, 2, 3, 4, 5}, {2, 1, 2, 3, 2, 4, 2, 5}, {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}};
 
-        StringBuilder xSb = new StringBuilder(X);
-        StringBuilder ySb = new StringBuilder(Y);
+    public int[] solution(int[] answers) {
+        ArrayList<Integer> li = new ArrayList<>();
+        int[] cnt = new int[3];
 
-        List<Integer> common = new ArrayList<>();
-
-        for (int i = 0; i < xSb.length(); i++) {
-            for (int j = 0; j < ySb.length(); j++) {
-                if (xSb.charAt(i) == ySb.charAt(j)) {
-                    common.add(Character.getNumericValue(xSb.charAt(i)));
-                    ySb.deleteCharAt(j);
+        for (int i = 0; i < W.length; i++) {
+            for (int j = 0; j < answers.length; j++) {
+                if (W[i][j % W[i].length] == answers[j]) {
+                    cnt[i]++;
                 }
             }
         }
-        if (common.size() == 0) {
-            return "-1";
+        int max = 0;
+        for (int i = 0; i < 3; i++) {
+            if (max < cnt[i]) {
+                max = cnt[i];
+            }
         }
 
-        common.sort(Collections.reverseOrder());
-
-        if (common.get(0) == 0) {
-            return "0";
+        for (int i = 0; i < 3; i++) {
+            if (max == cnt[i]) {
+                li.add(i + 1);
+            }
         }
 
-        common.forEach(answer::append);
-
-        return answer.toString();
-    }
-
-    public static void main(String[] args) {
-        Solution M = new Solution();
-        M.solution("12321", "42531");
-
-        System.out.println(M.solution("12321", "42531"));
+        return li.stream().mapToInt(i -> i).toArray();
     }
 
 }

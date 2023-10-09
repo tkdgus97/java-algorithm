@@ -5,24 +5,25 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Songagi {
-    int[] check = new int[10001] ;
+    int[] ch = new int[10001] ;
     int[] dis = {1, -1, 5};
-    Queue<Integer> q = new LinkedList<>();
+    Queue<Integer> Q = new LinkedList<>();
     public int soulution(int s, int e) {
+        ch[s] = 1;
+        Q.offer(s);
         int L = 0;
-        check[s] = 1;
-        q.offer(s);
-
-        while (!q.isEmpty()){
-            int len = q.size();
+        while (!Q.isEmpty()) {
+            int len = Q.size();
             for (int i = 0; i < len; i++) {
-                int cur = q.poll();
-                for (int j = 0; j < dis.length; j++) {
-                    int nx = cur + dis[j];
-                    if (nx == e) return L + 1;
-                    if (nx > 1 && nx < 10001) {
-                        check[nx] = 1;
-                        q.offer(nx);
+                int x = Q.poll();
+                for (int j = 0; j < 3; j++) {
+                    int nx = x + dis[j];
+                    if (nx == e) {
+                        return L;
+                    }
+                    if (nx >= 1 && nx <= 10000 && ch[nx] == 0) {
+                        ch[nx] = 1;
+                        Q.offer(nx);
                     }
                 }
             }

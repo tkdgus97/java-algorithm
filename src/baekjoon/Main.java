@@ -1,44 +1,75 @@
 package baekjoon;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
 //문제 풀이용
 public class Main {
+
+//    public static String sol(int n, int k) {
+//        return null;
+//    }
+    static int[][] map;
+    static boolean[][] visit;
+    static int[] disX = {0, 0, -1, 1};
+    static int[] disY = {-1, 1, 0, 0};
+    static int x, y, k;
+    static int nowX, nowY;
+
     public static void main(String[] args) {
-        Queue<Integer> Q = new LinkedList<>();
-
-//        Stack<Integer> Q = new Stack<>();
         Scanner sc = new Scanner(System.in);
-        StringBuilder sb = new StringBuilder();
+        int tc = sc.nextInt();
 
-        int N = sc.nextInt();
+        //테스트 케이스 만큼 반복
+        for (int i = 0; i < tc; i++) {
+            x = sc.nextInt();
+            y = sc.nextInt();
+            k = sc.nextInt();
 
-        int last = 0;
-        for (int i = 0; i <= N; i++) {
-            String s = sc.nextLine();
-            String[] command = s.split(" ");
-            if (command[0].equals("push")) {
-                int v = Integer.parseInt(command[1]);
-                last = v;
-                Q.add(v);
-            } else if (command[0].equals("front")) {
-                sb.append(Q.isEmpty() ? -1 : Q.peek()).append("\n");
-            } else if (command[0].equals("size")) {
-                sb.append(Q.size()).append("\n");
-            } else if (command[0].equals("empty")) {
-                sb.append(Q.isEmpty() ? 1 : 0).append("\n");
-            } else if (command[0].equals("pop")) {
-                sb.append(Q.isEmpty() ? -1 : Q.poll()).append("\n");
-            } else if(command[0].equals("back")) {
-                sb.append(Q.isEmpty() ? -1 : last).append("\n");
+            map = new int[y][x];
+            visit = new boolean[y][x];
+
+            for (int j = 0; j < k; j++) {
+                int tmpx = sc.nextInt();
+                int tmpy = sc.nextInt();
+                map[tmpy][tmpx] = 1;
+            }
+
+            for (int j = 0; j < y; j++) {
+                for (int l = 0; l < x; l++) {
+                    System.out.print(map[j][l] + " ");
+                }
+                System.out.println();
+            }
+
+            int count = 0;
+
+            for (int j = 0; j < y; j++) {
+                for (int l = 0; l < x; l++) {
+                    if (map[j][l] == 1 && !visit[j][l]) {
+                        DFS(j, l);
+                        count++;
+                    }
+                }
+            }
+            System.out.println(count);
+        }
+
+    }
+
+    static void DFS(int ly, int lx) {
+        visit[ly][lx] = true;
+        for (int i = 0; i < 4; i++) {
+            nowX = lx + disX[i];
+            nowY = ly + disY[i];
+            if (check() && map[nowY][nowX] == 1 && !visit[nowY][nowX]) {
+                DFS(nowY, nowX);
             }
         }
 
-        System.out.println(sb);
     }
 
+    static public boolean check() {
+        return (nowX < x && nowX >= 0 && nowY < y && nowY >= 0);
+    }
 }

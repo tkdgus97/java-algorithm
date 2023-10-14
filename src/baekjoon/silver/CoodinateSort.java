@@ -1,18 +1,11 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-//문제 풀이용
-public class Main {
-
-    //    public static String sol(int n, int k) {
-//        return null;
-//    }
+public class CoodinateSort {
     static class Point {
-
         int x;
         int y;
 
@@ -22,8 +15,7 @@ public class Main {
         }
     }
 
-
-    public static void main(String[] args) {
+    public void solution() {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         List<Point> list = new ArrayList<>();
@@ -43,6 +35,4 @@ public class Main {
             System.out.println(p.x + " " + p.y);
         }
     }
-
-
 }

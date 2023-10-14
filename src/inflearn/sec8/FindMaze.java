@@ -1,12 +1,10 @@
-package inflearn;
+package inflearn.sec8;
 
+import inflearn.Main;
 import java.util.Scanner;
 
-public class Main {
-//    public void solution(int n) {
-//
-//    }
-
+//DFS 방식
+public class FindMaze {
     static int[] dx = {-1,0,1,0};
     static int[] dy = {0,1,0,-1};
     static int[][] map;
@@ -27,18 +25,18 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        Main M = new Main();
-        Scanner sc = new Scanner(System.in);
-        map = new int[8][8];
-        for (int i = 1; i <= 7; i++) {
-            for (int j = 1; j <= 7; j++) {
-                map[i][j] = sc.nextInt();
-            }
-        }
-        map[1][1] = 1;
-        M.DFS(1,1);
-        System.out.println(answer);
-
-    }
+//    public static void main(String[] args) {
+//        Main M = new Main();
+//        Scanner sc = new Scanner(System.in);
+//        map = new int[8][8];
+//        for (int i = 1; i <= 7; i++) {
+//            for (int j = 1; j <= 7; j++) {
+//                map[i][j] = sc.nextInt();
+//            }
+//        }
+//        map[1][1] = 1;
+//        M.DFS(1,1);
+//        System.out.println(answer);
+//
+//    }
 }

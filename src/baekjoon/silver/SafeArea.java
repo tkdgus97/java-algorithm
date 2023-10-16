@@ -1,9 +1,9 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.util.Scanner;
 
-//문제 풀이용
-public class Main {
+//2468번
+public class SafeArea {
     static int N;
 
     static int[] dx = {-1, 1, 0, 0 };
@@ -53,5 +53,4 @@ public class Main {
             }
         }
     }
-
 }

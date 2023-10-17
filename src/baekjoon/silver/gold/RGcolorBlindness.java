@@ -1,11 +1,9 @@
-package baekjoon;
+package baekjoon.silver.gold;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
-//문제 풀이용
-public class Main {
+//10026
+public class RGcolorBlindness {
 
     static char[][] map;
     static boolean[][] visit;
@@ -65,19 +63,6 @@ public class Main {
             if ((nx >= 0 && nx < N ) && (ny >= 0 && ny < N) && !visit[nx][ny] && map[nx][ny] == map[x][y])  {
                 DFS(nx, ny);
             }
-        }
-    }
-
-    public static void BFS(int x, int y) {
-    }
-
-    static class Point {
-        int x;
-        int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
         }
     }
 }

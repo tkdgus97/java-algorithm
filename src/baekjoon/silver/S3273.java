@@ -1,21 +1,11 @@
-package baekjoon;
+package baekjoon.silver;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-//문제 풀이용
-public class Main {
-//    static int[] dx = {-1, 1, 0, 0};
-//    static int[] dy = {0, 0, -1, 1};
-//    static int[][] map;
-//    static boolean[][] visit;
-//    static int N,M, res, cnt;
-    public static void main(String[] args) throws IOException {
+public class S3273 {
+    public void sol() {
         Scanner sc = new Scanner(System.in);
 
         int N = sc.nextInt();
@@ -41,8 +31,5 @@ public class Main {
             else en--;
         }
         System.out.println(cnt);
-    }
-
-    public static void DFS(int x, int y) {
     }
 }

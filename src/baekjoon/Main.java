@@ -1,44 +1,60 @@
 package baekjoon;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 //문제 풀이용
 public class Main {
-
+//    static int[] dx = {-1, 1, 0, 0};
+//    static int[] dy = {0, 0, -1, 1};
+//    static int[][] map;
+//    static boolean[][] visit;
+//    static int N,M, res, cnt;
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int N = sc.nextInt();
 
-        int[] price = new int[4];
-        int[][] arr = new int[3][2];
+        boolean prime[] = new boolean[N + 1];
+        List<Integer> p = new ArrayList<>();
 
-        for (int i = 1; i < 4; i++) {
-            price[i] = sc.nextInt();
+        for (int i = 2; i <= N; i++) {
+            prime[i] = true;
         }
 
-        int minS = Integer.MAX_VALUE;
-        int maxS = Integer.MIN_VALUE;
-
-        for (int i = 0; i < 3; i++) {
-            int s = sc.nextInt();
-            int e = sc.nextInt();
-            minS = Math.min(s, minS);
-            maxS = Math.max(maxS, e);
-            arr[i][0] = s;
-            arr[i][1] = e;
+        for(int i=2; i<=N; i++){
+            // prime[i]가 소수라면
+            if(prime[i]){
+                p.add(i);
+                // prime[j] 소수가 아닌 표시
+                for(int j=i+i; j<=N; j+=i) prime[j] = false;
+            }
         }
-        int sum = 0;
 
-        for (int i = minS; i < maxS; i++) {
-            int cnt = 0;
-            for (int j = 0; j < 3; j++) {
-                if (arr[j][0] <= i && arr[j][1] > i) {
-                    cnt++;
+        int sum = 0, res = 0, lt = 0;
+        for (int rt = 0; rt < p.size(); rt++) {
+            sum += p.get(rt);
+            if (sum == N) {
+                res++;
+            }
+            while (sum >= N) {
+                sum -= p.get(lt++);
+                if (sum == N) {
+                    res++;
                 }
             }
-            sum += price[cnt]*cnt;
         }
-        System.out.println(sum);
+
+        System.out.println(res);
+
+    }
+
+    public static void DFS(int x, int y) {
     }
 }

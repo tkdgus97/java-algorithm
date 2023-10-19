@@ -9,36 +9,44 @@ public class Main {
 
     static int[] dx = {-1,0,1,0};
     static int[] dy = {0,1,0,-1};
-    static int[][] map;
+    static int[] map;
     static int answer = 0;
-    public void DFS(int x, int y) {
-        if (x == 7 && y == 7) {
-            answer++;
+    static int N, M;
+    static int[] pm;
+    static boolean[] visit;
+
+    public static void main(String[] args) {
+//        Main M = new Main();
+        Scanner sc = new Scanner(System.in);
+
+        N = sc.nextInt();
+        M = sc.nextInt();
+
+        map = new int[N];
+        pm = new int[M];
+        visit = new boolean[N];
+        for (int i = 0; i < N; i++) {
+            map[i] = sc.nextInt();
+        }
+
+        DFS(0);
+
+    }
+    protected static void DFS(int L) {
+        if (L == M) {
+            for (int i = 0; i < M; i++) {
+                System.out.print(pm[i] + " ");
+            }
+            System.out.println();
         } else {
-            for (int i = 0; i < 4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
-                if (nx >= 1 && nx <= 7 && ny >= 1 && ny <= 7 && map[nx][ny] == 0) {
-                    map[nx][ny] = 1;
-                    DFS(nx, ny);
-                    map[nx][ny] = 0;
+            for (int i = 0; i < N; i++) {
+                if (!visit[i]) {
+                    visit[i] = true;
+                    pm[L] = map[i];
+                    DFS(L + 1);
+                    visit[i] = false;
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Main M = new Main();
-        Scanner sc = new Scanner(System.in);
-        map = new int[8][8];
-        for (int i = 1; i <= 7; i++) {
-            for (int j = 1; j <= 7; j++) {
-                map[i][j] = sc.nextInt();
-            }
-        }
-        map[1][1] = 1;
-        M.DFS(1,1);
-        System.out.println(answer);
-
     }
 }

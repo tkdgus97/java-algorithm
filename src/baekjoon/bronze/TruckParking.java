@@ -1,12 +1,9 @@
-package baekjoon;
+package baekjoon.bronze;
 
-import java.io.IOException;
 import java.util.Scanner;
 
-//문제 풀이용
-public class Main {
-
-    public static void main(String[] args) throws IOException {
+public class TruckParking {
+    public void solution() {
         Scanner sc = new Scanner(System.in);
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

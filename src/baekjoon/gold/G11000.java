@@ -1,17 +1,14 @@
-package baekjoon;
-
+package baekjoon.gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
-    public static void main(String[] args) throws IOException {
+public class G11000 {
+    public void sol() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         ArrayList<Tmp> list = new ArrayList<>();
@@ -20,15 +17,23 @@ public class Main {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
 
-        for (int i = 0; i < N; i++) {
+        for(
+            int i = 0;
+            i<N;i++)
+
+        {
             st = new StringTokenizer(br.readLine());
-            list.add(new Tmp(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
+            list.add(new Tmp(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
         }
 
         Collections.sort(list);
         pq.offer(list.get(0).end);
 
-        for (int i = 1; i < N; i++) {
+        for(
+            int i = 1;
+            i<N;i++)
+
+        {
             if (pq.peek() <= list.get(i).start) {
                 pq.poll();
             }
@@ -39,6 +44,7 @@ public class Main {
     }
 
     private static class Tmp implements Comparable<Tmp> {
+
         int start;
         int end;
 

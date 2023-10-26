@@ -1,21 +1,16 @@
-package baekjoon;
+package baekjoon.silver;
 
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
+public class S2644 {
     static int[][] map;
     static int[] dis;
     static boolean[] dVisit;
     static int n;
-    public static void main(String[] args) throws IOException {
+    public void sol() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         //최대
@@ -54,5 +49,4 @@ public class Main {
             }
         }
     }
-
 }

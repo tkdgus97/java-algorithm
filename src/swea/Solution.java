@@ -1,13 +1,11 @@
-package baekjoon;
+package swea;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
+public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -16,8 +14,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         for (int i = 1; i <= t; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int size = Integer.parseInt(st.nextToken());
+            int size = sc.nextInt();
 
             int[][] arr = new int[size + 1][size + 1];
             arr[1][1] = 1;

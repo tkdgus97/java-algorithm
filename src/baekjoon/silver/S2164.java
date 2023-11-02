@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,10 +7,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
-
-    public static void main(String[] args) throws IOException {
+public class S2164 {
+    public void sol() throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

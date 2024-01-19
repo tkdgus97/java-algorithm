@@ -3,38 +3,29 @@ package swea;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.StringTokenizer;
 
 public class Solution {
+    private static int[][] map;
+
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-//
-//        N = Integer.parseInt(st.nextToken());
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        for (int i = 1; i <= t; i++) {
-            int size = sc.nextInt();
 
-            int[][] arr = new int[size + 1][size + 1];
-            arr[1][1] = 1;
+        //테스트 케이스 입력
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int t = Integer.parseInt(st.nextToken());
 
-            for (int j = 2; j <= size; j++) {
-                for (int k = 1; k <= j; k++) {
-                    arr[j][k] = arr[j - 1][k - 1] + arr[j - 1][k];
-                }
-            }
+        for (int test_case = 1; test_case <= t; test_case++) {
+            st = new StringTokenizer(br.readLine());
 
-            sb.append("#").append(i).append("\n");
-            for (int j = 1; j <= size; j++) {
-                for (int k = 1; k <= j; k++) {
-                    sb.append(arr[j][k]).append(" ");
-                }
-                sb.append("\n");
-            }
+
+
+//            sb.append("#").append(test_case).append(" ").append(max).append("\n");
         }
-
         System.out.println(sb);
-
     }
 }

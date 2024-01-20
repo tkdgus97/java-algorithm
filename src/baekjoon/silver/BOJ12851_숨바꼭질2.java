@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
+public class BOJ12851_숨바꼭질2 {
     private static int cnt = 0;
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();

@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
+public class BOJ12018_YonseiTOTO {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
 

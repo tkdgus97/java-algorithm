@@ -1,16 +1,11 @@
-package baekjoon;
+package baekjoon.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//문제 풀이용
-public class Main {
-
-    //1. 입력 받음
-    //2. 각 집(i)까지의 최소 비용은 = i번째 현재색 + (i -1 집의 현재색을 제외한 이전의 제외한 값 중 작은 값)
-    //3. map의 값을 업데이트
+public class BOJ1149_RGB거리 {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
 

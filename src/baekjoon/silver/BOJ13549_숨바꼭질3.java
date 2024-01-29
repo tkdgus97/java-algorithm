@@ -20,6 +20,7 @@ public class BOJ13549_숨바꼭질3 {
         System.out.println(bfs2(N, K));
     }
 
+    //처음 시도
     private static int bfs(int start, int target) {
         int[] d = {-1, 1, 2};
 
@@ -54,8 +55,8 @@ public class BOJ13549_숨바꼭질3 {
         return result;
     }
 
+
     private static int bfs2(int start, int target) {
-        int[] d = {-1, 1, 2};
         boolean[] visit = new boolean[100001];
         int result = Integer.MAX_VALUE;
 

@@ -35,7 +35,7 @@ public class Main {
                 }
             } else {  //여자일 경우
                 int lt = target - 1, rt = target + 1;
-                while((lt > 0) && (rt <= S)) {
+                while ((lt > 0) && (rt <= S)) {
                     if (switches[lt] == switches[rt]) {
                         lt -= 1;
                         rt += 1;
@@ -44,7 +44,7 @@ public class Main {
                     }
                 }
 
-                for (int j = lt + 1; j <=rt - 1; j++) {
+                for (int j = lt + 1; j <= rt - 1; j++) {
                     switches[j] ^= 1;
                 }
             }

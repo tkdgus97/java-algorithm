@@ -8,9 +8,13 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *
+ * 구현
+ * 1. 접수 창구에 배정된 고객들의 현재 time값을 먼저 확인한 다음 해당 접수 창구의 처리 시간과 동일하다면 정비 창구 대기 큐에 넣음
+ * 2. 정비 창구에 배정된 고객들의 현재 time값을 확인한 다음 해당 정비 창구의 처리 시간과 동일하다면 빼버리고 대기큐 확인 후 배치
+ * 3. 타임 테이블별로 현재의 접수 창구를 확인하고 할당 가능하다면 할당 그렇지 않다면 접수 대기큐에 넣어줌
+ * 4. 창구에 배정시에 시간값을 1부터 세팅한 후 시작하며 다음 시간에 확인
  */
-public class Solution {
+public class SW2477_차량정비소 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -149,7 +153,5 @@ public class Solution {
             sb.append("#").append(tc).append(" ").append(result == 0 ? -1 : result).append("\n");
         }
         System.out.println(sb);
-
     }
-
 }

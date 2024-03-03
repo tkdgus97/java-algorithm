@@ -3,9 +3,11 @@ package swea;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
-public class Solution {
+public class SW5644_무선충전 {
     private static class BC {
         int x;
         int y;
@@ -37,7 +39,7 @@ public class Solution {
             int M = Integer.parseInt(st.nextToken());
             int A = Integer.parseInt(st.nextToken());
 
-            BC[] batteries = new BC[A];
+            Solution.BC[] batteries = new Solution.BC[A];
 
             int[] aMove = new int[M];
             int[] bMove = new int[M];
@@ -57,7 +59,7 @@ public class Solution {
                 int y = Integer.parseInt(st.nextToken());
                 int range = Integer.parseInt(st.nextToken());
                 int charge = Integer.parseInt(st.nextToken());
-                batteries[i] = new BC(y - 1, x - 1, charge, range);
+                batteries[i] = new Solution.BC(y - 1, x - 1, charge, range);
             }
 
             int result = simulation(aMove, bMove, batteries, M);
@@ -67,7 +69,7 @@ public class Solution {
         System.out.println(sb);
     }
 
-    private static int simulation(int[] aMove, int[] bMove, BC[] batteries, int M) {
+    private static int simulation(int[] aMove, int[] bMove, Solution.BC[] batteries, int M) {
         int ax, ay;
         ax = ay = 0;
 
@@ -88,7 +90,7 @@ public class Solution {
         return total;
     }
 
-    private static int charge(int ax, int ay, int bx, int by, BC[] batteries) {
+    private static int charge(int ax, int ay, int bx, int by, Solution.BC[] batteries) {
         List<Integer> aList = new ArrayList<>();
         List<Integer> bList = new ArrayList<>();
         for (int i = 0; i < batteries.length; i++) {

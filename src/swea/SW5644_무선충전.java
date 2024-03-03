@@ -39,7 +39,7 @@ public class SW5644_무선충전 {
             int M = Integer.parseInt(st.nextToken());
             int A = Integer.parseInt(st.nextToken());
 
-            Solution.BC[] batteries = new Solution.BC[A];
+            BC[] batteries = new BC[A];
 
             int[] aMove = new int[M];
             int[] bMove = new int[M];
@@ -59,7 +59,7 @@ public class SW5644_무선충전 {
                 int y = Integer.parseInt(st.nextToken());
                 int range = Integer.parseInt(st.nextToken());
                 int charge = Integer.parseInt(st.nextToken());
-                batteries[i] = new Solution.BC(y - 1, x - 1, charge, range);
+                batteries[i] = new BC(y - 1, x - 1, charge, range);
             }
 
             int result = simulation(aMove, bMove, batteries, M);
@@ -69,7 +69,7 @@ public class SW5644_무선충전 {
         System.out.println(sb);
     }
 
-    private static int simulation(int[] aMove, int[] bMove, Solution.BC[] batteries, int M) {
+    private static int simulation(int[] aMove, int[] bMove, BC[] batteries, int M) {
         int ax, ay;
         ax = ay = 0;
 
@@ -90,7 +90,7 @@ public class SW5644_무선충전 {
         return total;
     }
 
-    private static int charge(int ax, int ay, int bx, int by, Solution.BC[] batteries) {
+    private static int charge(int ax, int ay, int bx, int by, BC[] batteries) {
         List<Integer> aList = new ArrayList<>();
         List<Integer> bList = new ArrayList<>();
         for (int i = 0; i < batteries.length; i++) {
